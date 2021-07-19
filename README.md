@@ -70,11 +70,11 @@ All input sequences file has to be formated as following
 Where `IDX` is the X-th sequence ID (if there is no sequence identificator, please change `ID=True` into `ID=False` at line 21 in `getNetwork.py` python script. Separator are simple space " ", please change `sep` variable at line 20 if the script for an other column separator. The first element of each line is the ID of the sequence.
 The rest of the line is the sequence of items.
 
-In case of an other data set, with corresponding filename `data.csv`, just replace maritime.csv with data.csv while running the python script. All output filenames will start with `data-[Network model]`.
+In case of an other data set, with corresponding filename `dataset.csv`, just replace maritime.csv with data.csv while running the python script. All output filenames will start with `dataset`.
 
 ### Structure of output files
 
-Table of links : 
+Table of links `dataset-netmodel.txt`, with `dataset` being one of maritime, airports or taxis and `netmodel` being either 1stON (first-order network model) or VON (variable-order network model) :
 
        N_nodes
        N_links
@@ -84,8 +84,7 @@ Table of links :
 
 Where `N_nodes` and `N_links` are the number of nodes and links, `SX` is the source node ID for the X-th link, and `TX` the corresponding target node's ID and the weight of this link is `WX`. For the i-th node (from the top) present in the list of nodes (file with `.titles` extension), its ID is simply `i`. As such, the entry `1 2 0.5` in the table of links means that a link going from the 1st node of the list of nodes to the second one of the same list, exists and has a weight of `0.5`.
 
-PageRank files (`dataset-netmodel-PRmodel-alpha.dat`):
-`dataset` can be maritime, taxis or airports for instance. `netmodel` is either 1stON or VON, PRmodel can be 1stON-PR, VON-PR, Biased-1stON-PR or Unbiased-VON-PR, and finally alpha is the damping factor such as, in case of a value of 0.85 the filename will have `085` in its name. The output is formated as follows
+PageRank files `dataset-netmodel-PRmodel-alpha.dat`, with PRmodel being either 1stON-PR, VON-PR, Biased-1stON-PR or Unbiased-VON-PR, and  alpha, the damping factor, being such as in case of a value of 0.85 the filename will have `085` in its name :
 
       1 PR1 n1 N1
       2 PR2 n2 N2
