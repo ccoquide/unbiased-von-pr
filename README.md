@@ -18,8 +18,9 @@
 The three datasets used in the paper are available here. An explanation of each dataset is given in Section V of the paper.
 
 1. `maritime.csv`: Maritime sequences dataset (default dataset used in the script below)
-2. `airports.zip` Airport sequences dataset (compressed). 
-3. `taxis.zip` Taxis sequences dataset (compressed). 
+2. `maritime-info.csv` : Maritime sequences' items related information (Ports name)
+3. `airports.tar.gz` Airports sequences + Items related information (compressed). 
+4. `taxis.tar.gz` Taxis sequences dataset + Items related information compressed). 
 
 The structure of input files is described at the end of the document. 
 
