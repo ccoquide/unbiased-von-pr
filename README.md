@@ -71,7 +71,21 @@ In case of an other data set, with corresponding filename `data.csv`, just repla
 
 ### Structure of output files
 
-Table of links : The two first rows are respectivly `number of nodes` and `number of links`. Then for each following row, we have 3 column, the first is related to the source node's ID, the second one is for the target node's ID, and the third column encodes the link weight. For the i-th node (from the top) present in the list of nodes (file with `.titles` extension), its ID is simply `i`. As such, the entry `1 2 0.5` in the table of links means that a link going from the 1st node of the list of nodes to the second one of the same list, exists and has a weight of `0.5`.
+Table of links : 
 
-PageRank files : Each row is formated as the following, Rank (noted K in the file header), PageRank value (PR), Node's ID (int) and Node label (tuple of ints).
+       N_nodes
+       N_links
+       S1 T1 W1
+       S2 T2 W2
+       ...
 
+Where `N_nodes` and `N_links` are the number of nodes and links, `SX` is the source node ID for the X-th link, and `TX` the corresponding target node's ID and the weight of this link is `WX`. For the i-th node (from the top) present in the list of nodes (file with `.titles` extension), its ID is simply `i`. As such, the entry `1 2 0.5` in the table of links means that a link going from the 1st node of the list of nodes to the second one of the same list, exists and has a weight of `0.5`.
+
+PageRank files : 
+
+      1 PR1 n1 N1
+      2 PR2 n2 N2
+      3 PR3 n3 N3
+      ...
+
+Where thirs element of each lin (1,2, ...) is the rank, `PRX` is the PageRank value related to the item ranked `X` with the corresponding PageRank model, `nX` is the node's ID (int) and `NX` the node label (tuple of ints).
