@@ -37,7 +37,7 @@ run `python3 getNetwork.py maritime.csv` creates file containing list of memory-
 
 The structure of table of links related files is described at the end of the document.
 
-Statistics about Nrep and Item Visits is recorded in `maritime-Stats.dat`where the 1st column is related to Item (tuple of int), 2nd column is for corresponding Nrep-Rank (int) and last one for Visit-Rank (int). 
+Statistics about Nrep and Item Visits is recorded in `maritime-Stats.dat`where the 1st column is related to the item label (tuple of int), 2nd column is for corresponding Nrep-Rank (int) and last one for Visit-Rank (int). 
 ### Computing PageRanks for a given damping factor alpha (default is 0.85)
 
 `buildPR.py` generates for each chosen alpha (change alpha into a list of values at line 53 permits to generate several files) one PageRank related file for each PR model presented in section IV.
@@ -67,8 +67,7 @@ All input sequences file has to be formated as following
         ID3 i2 i4 ...
         ...
 
-Where `IDX` is the X-th sequence ID (if there is no sequence identificator, please change `ID=True` into `ID=False` at line 21 in `getNetwork.py` python script. Separator are simple space " ", please change `sep` variable at line 20 if the script for an other column separator. The first element of each line is the ID of the sequence.
-/bin/bash: q: command not found
+Where `IDX` is the X-th sequence ID (if there is no sequence identificator, please change `ID=True` into `ID=False` at line 21 in `getNetwork.py` python script. Separator are simple space " ", please change `sep` variable at line 20 if the script for an other column separator. The first element of each line is the ID of the sequence. The next elements or the sequence of items label (int) 'iX'.
 
 In case of an other data set, with corresponding filename `dataset.csv`, just replace maritime.csv with data.csv while running the python script. All output filenames will start with `dataset`.
 
@@ -82,7 +81,7 @@ Table of links `dataset-netmodel.txt`, with `dataset` being one of maritime, air
        S2 T2 W2
        ...
 
-Where `N_nodes` and `N_links` are the number of nodes and links, `SX` is the source node ID for the X-th link, and `TX` the corresponding target node's ID and the weight of this link is `WX`. For the i-th node (from the top) present in the list of nodes (file with `.titles` extension), its ID is simply `i`. As such, the entry `1 2 0.5` in the table of links means that a link going from the 1st node of the list of nodes to the second one of the same list, exists and has a weight of `0.5`.
+Where `N_nodes` and `N_links` are the number of nodes and links, `SX` is the source node ID for the X-th link, and `TX` the corresponding target node's ID and the weight of this link is `WX`. For the i-th node (from the top) present in the list of nodes (file with `.titles` extension), its ID is simply `i`. As such, the entry `1 2 0.5` in the table of links means that a link going from the 1st node of the list of nodes to the second one of the same list, exists and has a weight of `0.5`. The column separator is `\t`.
 
 PageRank files `dataset-netmodel-PRmodel-alpha.dat`, with PRmodel being either 1stON-PR, VON-PR, Biased-1stON-PR or Unbiased-VON-PR, and  alpha, the damping factor, being such as in case of a value of 0.85 the filename will have `085` in its name :
 
@@ -91,7 +90,7 @@ PageRank files `dataset-netmodel-PRmodel-alpha.dat`, with PRmodel being either 1
       3 PR3 n3 N3
       ...
 
-Where thirs element of each lin (1,2, ...) is the rank, `PRX` is the PageRank value related to the item ranked `X` with the corresponding PageRank model, `nX` is the node's ID (int) and `NX` the node label (tuple of ints).
+Where thirs element of each lin (1,2, ...) is the rank, `PRX` is the PageRank value related to the item ranked `X` with the corresponding PageRank model, `nX` is the node's ID (int) and `NX` the node label (tuple of ints). The column separator is `\t`.
 
 `dataset-scores-alpha.dat` :
 
@@ -100,7 +99,7 @@ Where thirs element of each lin (1,2, ...) is the rank, `PRX` is the PageRank va
      I3 PR3a PR2b PR3c PR3d RR3 VR3
      ...
 
-Where `IX` is the item name (found from the item related information in `dataset-info.csv`), `PRXa` is the corresponding PageRank value computed with 1stON PR model, `PRXb` is related to VON PR model, `PRXc` to Biased 1stON PR and `PRXd` is for the Unbiased VON PR model. Finally, `RRX` and `VRX` are respectivly the Nrep ranking and Visit Ranking ranks.
+Where `IX` is the item name (found from the item related information in `dataset-info.csv`), `PRXa` is the corresponding PageRank value computed with 1stON PR model, `PRXb` is related to VON PR model, `PRXc` to Biased 1stON PR and `PRXd` is for the Unbiased VON PR model. Finally, `RRX` and `VRX` are respectivly the Nrep ranking and Visit Ranking ranks. The column separator is `\t`.
 
 `dataset-ranks-alpha.dat` :
 
@@ -109,4 +108,4 @@ Where `IX` is the item name (found from the item related information in `dataset
     I3 K3a K3b K3c K3d RR3 VR3
     ...
 
-Where 'KX' refers for the PageRank rank of the item Xth item, `a`, `b`, `c` and `d` have the same meaning than in `dataset-scores-alpha.dat` file.
+Where 'KX' refers for the PageRank rank of the item Xth item, `a`, `b`, `c` and `d` have the same meaning than in `dataset-scores-alpha.dat` file. The column separator is `\t`.
