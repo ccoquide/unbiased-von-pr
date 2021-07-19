@@ -17,7 +17,7 @@ from HONUtils import *
 
 ##File name and separator type
 sequences_file=sys.argv[1]
-sep=","
+sep=" "
 ID=True ## if first item of each sequence is an id then ID=True 
 SEQs=readSequenceFile(sequences_file,ID,sep)
 Items=[] ## List of items
