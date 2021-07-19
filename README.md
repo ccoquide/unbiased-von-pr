@@ -54,7 +54,9 @@ The structure of these files is detailed at the end of this docuement.
 
 ### Generate final output containing all PageRank probabilities (or ranks) and statistic based rankings
 
-The command `python3 getFinal.py maritime.csv 0.85` gives all PageRank computed with alpha = 0.85 and statistics related to maritime data set. Two files are created: `maritime-scores-085.dat` (PageRank values) and `maritime-ranks-085.dat` (Ranks). in both files, first column is related to Item names (ports, airports, ...), from the 2nd to the 5th column are displayed PageRank values (or Ranks) for 1stON PR, VON PR, Biased 1stON PR and Unbiased VON PR respectivly. The two last columns prensent Nrer-Rank and Visit-Rank.
+The command `python3 getFinal.py maritime.csv 0.85` gives all PageRank computed with alpha = 0.85 and statistics related to maritime data set. Two files are created: `maritime-scores-085.dat` (PageRank values) and `maritime-ranks-085.dat` (PageRank Ranks).
+
+The structure of these files is detailed at the end of this document.
 
 *Warning:** All output file are created at the location than the input sequences file.
 ### Using other data sets
@@ -82,7 +84,8 @@ Table of links :
 
 Where `N_nodes` and `N_links` are the number of nodes and links, `SX` is the source node ID for the X-th link, and `TX` the corresponding target node's ID and the weight of this link is `WX`. For the i-th node (from the top) present in the list of nodes (file with `.titles` extension), its ID is simply `i`. As such, the entry `1 2 0.5` in the table of links means that a link going from the 1st node of the list of nodes to the second one of the same list, exists and has a weight of `0.5`.
 
-PageRank files : 
+PageRank files (`dataset-netmodel-PRmodel-alpha.dat`):
+`dataset` can be maritime, taxis or airports for instance. `netmodel` is either 1stON or VON, PRmodel can be 1stON-PR, VON-PR, Biased-1stON-PR or Unbiased-VON-PR, and finally alpha is the damping factor such as, in case of a value of 0.85 the filename will have `085` in its name. The output is formated as follows
 
       1 PR1 n1 N1
       2 PR2 n2 N2
@@ -90,3 +93,21 @@ PageRank files :
       ...
 
 Where thirs element of each lin (1,2, ...) is the rank, `PRX` is the PageRank value related to the item ranked `X` with the corresponding PageRank model, `nX` is the node's ID (int) and `NX` the node label (tuple of ints).
+
+`dataset-scores-alpha.dat` :
+
+     I1 PR1a PR1b PR1c PR1d RR1 VR1
+     I2 PR2a PR2b PR2c PR2d RR2 VR2
+     I3 PR3a PR2b PR3c PR3d RR3 VR3
+     ...
+
+Where `IX` is the item name (found from the item related information in `dataset-info.csv`), `PRXa` is the corresponding PageRank value computed with 1stON PR model, `PRXb` is related to VON PR model, `PRXc` to Biased 1stON PR and `PRXd` is for the Unbiased VON PR model. Finally, `RRX` and `VRX` are respectivly the Nrep ranking and Visit Ranking ranks.
+
+`dataset-ranks-alpha.dat` :
+
+    I1 K1a K1b K1c K1d RR1 VR1
+    I2 K2a K2b K2c K2d RR2 VR2
+    I3 K3a K3b K3c K3d RR3 VR3
+    ...
+
+Where 'KX' refers for the PageRank rank of the item Xth item, `a`, `b`, `c` and `d` have the same meaning than in `dataset-scores-alpha.dat` file.
