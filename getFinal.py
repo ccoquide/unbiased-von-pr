@@ -92,7 +92,10 @@ for i in sort_items:
 	if item not in Items.keys(): ## If item is present in sequences but not in information file
 		name=str(item[0])
 	else:
-		name=Items[item]
+		if Items[item] == "None":
+			name=str(item[0]) ## In case of taxis, some police station name have not been found
+		else:
+			name=Items[item]
 	out1.write(name)
 	out2.write(name)
 	for model in ["1stON PR", "VON PR", "Biased 1stON PR", "Unbiased VON PR"]:
