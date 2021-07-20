@@ -83,8 +83,6 @@ Stats about Nrep distribution and Visit-Rank
 print("Computing stats: RepRank and Visit-Rank")
 Rep={} ## Dict of Nrep Rank: Item (tuple) -> Rank (int)
 V={} ## Dict of Visit Rank: Item (tuple) -> Rank (int)
-tmpRep={} ## Dict of Nrep Rank: Nrep (int) -> Rank (int)
-tmpV={} ## Dict of Visit Rank: Visit rate (float) -> Rank (int)
 for i in Items:
 	Rep[i]=0
 	V[i]=0
@@ -97,31 +95,18 @@ for seq in SEQs:
 		cnt+=1
 for i in Items:
 	V[i]=(1.0*V[i])/cnt
-for i in V:
-	tmpV[V[i]]=1
-tmpv=list(tmpV.keys())
-tmpv_sorted=sorted(range(len(tmpv)), key = lambda k : tmpv[k], reverse=True)
-for k in range(len(tmpv_sorted)):
-	tmpV[tmpv[tmpv_sorted[k]]]=k+1 ## Permits ties
-for i in V:
-	V[i]=tmpV[V[i]]
-
+tmp=sorted(V.keys(), key = lambda k : V[k], reverse=True)
+for k in range(len(tmp)):
+	V[tmp[k]]=k+1
 ## Nrep Ranking
 for n in MemNodes:
 	Rep[n[-1:]] += 1
-for i in Rep:
-	tmpRep[Rep[i]]=1
-tmpr=list(tmpRep.keys())
-tmpr_sorted=sorted(range(len(tmpr)), key = lambda k : tmpr[k], reverse=True)
-for k in range(len(tmpr_sorted)):
-	tmpRep[tmpr[tmpr_sorted[k]]]=k+1 ## Permits ties
-for i in Rep:
-	Rep[i]=tmpRep[Rep[i]]
-RepRank=Rep
-VisitRank=V
+tmp=sorted(Rep.keys(), key = lambda k : Rep[k], reverse=True)
+for k in range(len(tmp)):
+	Rep[tmp[k]]=k+1 ## Permits ties
 out=open(sequences_file.replace(".csv","")+"-Stats.dat","w")
 out.write("Item\tNrep-Rank\tVisit-Rank\n")
 for i in Items:
-	out.write(str(i)+"\t"+str(RepRank[i])+"\t"+str(VisitRank[i])+"\n")
+	out.write(str(i)+"\t"+str(Rep[i])+"\t"+str(V[i])+"\n")
 out.close()
 
