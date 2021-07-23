@@ -52,10 +52,10 @@ def BuildPR(sequences_filename,REP,opt):
 
 	alpha = [0.85]
 	## Multiple alpha can be used
-	# amin = 0.5
-	# amax = 0.9
-	# dalpha = 0.005
-	# alpha = np.arange(amin,amax+dalpha,dalpha):
+#	amin = 0.5
+#	amax = 0.9
+#	dalpha = 0.005
+#	alpha = np.arange(amin,amax+dalpha,dalpha):
 
 	##########
 	## INIT ##

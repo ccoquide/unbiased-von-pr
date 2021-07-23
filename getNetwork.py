@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
-Build a variable-network (option = "VON") or first-order network (option = "1stON") from input sequences
-Command to execute this script: python3 getNetwork.py input_sequences_filename option
+Build a variable-network and a first-order network associated to input sequences
+Command to execute this script: python3 getNetwork.py input_sequences_filename
 '''
 
 import sys
