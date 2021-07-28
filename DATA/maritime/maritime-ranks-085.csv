@@ -1,0 +1,12 @@
+			1stON PR			VON PR			Biased 1stON PR			Unbiased VON PR	
+Rank	Item Name	Rep-Rank	Visit-Rank	Item Name	Rep-Rank	Visit-Rank	Item Name	Rep-Rank	Visit-Ranks	Item Name	Rep-Rank	Visit-Ranks
+1	Singapore (SGP)	2	2	Hong Kong (HKG)	1	1	Singapore (SGP)	2	2	Singapore (SGP)	2	2
+2	Hong Kong (HKG)	1	1	Singapore (SGP)	2	2	Hong Kong (HKG)	1	1	Busan (KOR)	4	4
+3	Rotterdam (NLD)	5	7	Shanghai (CHI)	3	3	Shanghai (CHI)	3	3	Hong Kong (HKG)	1	1
+4	Busan (KOR)	4	4	Busan (KOR)	4	4	Busan (KOR)	4	4	Rotterdam (NLD)	5	7
+5	Shanghai (CHI)	3	3	Rotterdam (NLD)	5	7	Rotterdam (NLD)	5	7	Shanghai (CHI)	3	3
+6	Hamburg (DEU)	8	10	Port Klang (MYS)	6	6	Port Klang (MYS)	6	6	Hamburg (DEU)	8	10
+7	Port Klang (MYS)	6	6	Kaohsiung (TWN)	7	5	Kaohsiung (TWN)	7	5	Antwerp (BEL)	10	12
+8	Antwerp (BEL)	10	12	Hamburg (DEU)	8	10	Hamburg (DEU)	8	10	Bremerhaven (DEU)	12	19
+9	Bremerhaven (DEU)	12	19	Antwerp (BEL)	10	12	Antwerp (BEL)	10	12	Surabaya (IDN)	45	36
+10	Kaohsiung (TWN)	7	5	Jebel Ali (ARE)	9	11	Jebel Ali (ARE)	9	11	Port Klang (MYS)	6	6
