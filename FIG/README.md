@@ -8,6 +8,6 @@ Tables:
 
 Figures:
 
-1. `maritime-KendallAlpha.pdf`: Evolution of Kendall correlation coefficients with the PageRank damping factor in case of maritime dataset. The red solid line is for the pair of rankings issued from Unbiased VON PR and Biased 1stON PR, the black solid line corresponds to the pair VON PR and Biased 1stON PR. Dashed lines are related to correlations with 1stON PR ranking.
+1. `maritime-KendallAlpha.pdf`: Evolution of Kendall correlation coefficients with the PageRank damping factor in case of maritime dataset. The red solid line corresponds to correlation between Unbiased VON PR and Biased 1stON PR, the black solid line to the pair VON PR, Biased 1stON PR. Dashed lines corresponds to correlations with 1stON PR ranking.
 2. `airports-KendallAlpha.pdf`: Related to airports.
 3. `taxis-KendallAlpha.pdf`: Related to taxis.
