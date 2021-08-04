@@ -11,7 +11,7 @@
 
 **The experiments' scripts also use third party codes.**
 
-- Files `BuildRulesFast.py` and `BuildNetwork.py` are used for extracting relevant extensions (see Section III of the paper) from an input data set, and to build Von networks (or 1stOn networks). The original scripts are available at https://github.com/xyjprc/hon (last check June 2021), moreover, we have made minor modifications in these scripts.
+- Files `BuildRulesFast.py` and `BuildNetwork.py` are used for extracting relevant extensions (see Section III of the paper) from an input data set, and to build VON networks (or 1stON networks). The original scripts are available at https://github.com/xyjprc/hon (last check June 2021), moreover, we have made minor modifications in these scripts.
 
 ## Datasets
 
@@ -30,12 +30,12 @@ The structure of input files is described at the end of the document.
 
 run `python3 getNetwork.py maritime.csv` creates file containing list of memory-nodes (`.titles` file extension) sorted arbitrarly and table of links (`.txt` file extension) for each network model.
 
-1. `maritime-1stON.titles` : First-order network list of memory-nodes
-2. `maritime-VON.titles` : Variavle-order network list of memory-nodes
-3. `maritime-1stON.txt` : 1stON table of links
-4. `maritime-VON.txt` : VON table of links
+1. `maritime-1stON.titles` : List of nodes in case of 1stON (equivalent to the list of items) 
+2. `maritime-VON.titles` : Lis of nodes (memory-nodes) for VON
+3. `maritime-1stON.txt` : Table of links for 1stON
+4. `maritime-VON.txt` : Table of links for VON
 
-The structure of table of links related files is described at the end of the document.
+The structure of the files related tables of links is described at the end of the document.
 
 Statistics about Nrep and Item Visits is recorded in `maritime-Stats.dat`where the 1st column is related to the item label (tuple of int), 2nd column is for corresponding Nrep-Rank (int) and last one for Visit-Rank (int). 
 ### Computing PageRanks for a given damping factor alpha (default is 0.85)
@@ -45,10 +45,10 @@ Run command `python3 buildPR.py maritime.csv` to automatically obtain all PR fil
 
 Output files are the following
 
-1. `maritime-1stON-1stON-PR-085.dat` : 1stON PR in case of maritime data set and alpha=0.85
-2. `maritime-1stON-Biased-1stON-PR-085.dat` : Obtained with Biased 1stON PR model
-3. `maritime-VON-VON-PR-085.dat` : VON PR model Obtained with Standard PR model applied on VON
-4. `maritime-VON-Unbiased-VON-PR-085.dat` : Obtained with Unbiased VON PR model
+1. `maritime-1stON-1stON-PR-085.dat` : 1stONPR in case of maritime data set and alpha=0.85
+2. `maritime-1stON-Biased-1stON-PR-085.dat` : Obtained with Biased 1stONPR model
+3. `maritime-VON-VON-PR-085.dat` : VONPR model obtained with Standard PR model applied on VON
+4. `maritime-VON-Unbiased-VON-PR-085.dat` : Obtained with Unbiased VONPR model
 
 The structure of these files is detailed at the end of this docuement.
 
@@ -73,7 +73,7 @@ In case of an other data set, with corresponding filename `dataset.csv`, just re
 
 ### Structure of output files
 
-Table of links `dataset-netmodel.txt`, with `dataset` being one of maritime, airports or taxis and `netmodel` being either 1stON (first-order network model) or VON (variable-order network model) :
+Table of links `dataset-netmodel.txt`, with `dataset` being one of maritime, airports or taxis and `netmodel` being either `1stON` (first-order network model) or `VON` (variable-order network model) :
 
        N_nodes
        N_links
@@ -83,7 +83,7 @@ Table of links `dataset-netmodel.txt`, with `dataset` being one of maritime, air
 
 Where `N_nodes` and `N_links` are the number of nodes and links, `SX` is the source node ID for the X-th link, and `TX` the corresponding target node's ID and the weight of this link is `WX`. For the i-th node (from the top) present in the list of nodes (file with `.titles` extension), its ID is simply `i`. As such, the entry `1 2 0.5` in the table of links means that a link going from the 1st node of the list of nodes to the second one of the same list, exists and has a weight of `0.5`. The column separator is `\t`.
 
-PageRank files `dataset-netmodel-PRmodel-alpha.dat`, with PRmodel being either 1stON-PR, VON-PR, Biased-1stON-PR or Unbiased-VON-PR, and  alpha, the damping factor, being such as in case of a value of 0.85 the filename will have `085` in its name :
+PageRank files `dataset-netmodel-PRmodel-alpha.dat`, with PRmodel being either `1stON-PR`, `VON-PR`, `Biased-1stON-PR` or `Unbiased-VON-PR`, and  alpha, the damping factor, being such as in case of a value of 0.85 the filename will have `085` in its name :
 
       1 PR1 n1 N1
       2 PR2 n2 N2
